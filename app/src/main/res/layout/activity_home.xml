@@ -21,9 +21,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
-            app:menu="@menu/menu_home"
-            app:popupTheme="@style/ThemeOverlay.Material3.Light" />
+            android:background="@android:color/transparent" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -437,6 +435,24 @@
                         android:orientation="horizontal">
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/button_subtract_water"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginEnd="8dp"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            app:cornerRadius="14dp"
+                            app:icon="@drawable/ic_remove"
+                            app:iconGravity="textStart"
+                            app:iconPadding="0dp"
+                            app:iconSize="20dp"
+                            app:iconTint="@color/water_blue"
+                            app:strokeColor="@color/water_blue"
+                            app:strokeWidth="1dp" />
+
+                        <com.google.android.material.button.MaterialButton
                             android:id="@+id/button_add_water_small"
                             style="@style/Widget.Material3.Button.TonalButton"
                             android:layout_width="0dp"
@@ -468,6 +484,160 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+            <!-- Calorie Intake Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_calories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/stat_icon_background_orange" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/lexend_semibold"
+                                android:text="Calorie Intake"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/textView_calorie_progress_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/lexend"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp"
+                                tools:text="1,200 / 2,150 kcal" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textView_calorie_percentage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lexend_bold"
+                            android:textColor="@color/calorie_orange"
+                            android:textSize="24sp"
+                            tools:text="56%" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressIndicator_calories"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:max="100"
+                        app:indicatorColor="@color/calorie_orange"
+                        app:trackColor="@color/calorie_orange_light"
+                        app:trackCornerRadius="8dp"
+                        app:trackThickness="10dp" />
+
+                    <!-- Calorie Action Buttons -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/button_subtract_calories"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginEnd="8dp"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp"
+                            app:cornerRadius="14dp"
+                            app:icon="@drawable/ic_remove"
+                            app:iconGravity="textStart"
+                            app:iconPadding="0dp"
+                            app:iconSize="20dp"
+                            app:iconTint="@color/calorie_orange"
+                            app:strokeColor="@color/calorie_orange"
+                            app:strokeWidth="1dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/button_add_calories_small"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/lexend_medium"
+                            android:text="+100 kcal"
+                            android:textColor="@color/calorie_orange"
+                            android:textSize="14sp"
+                            app:backgroundTint="@color/calorie_orange_light"
+                            app:cornerRadius="14dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/button_add_calories_large"
+                            style="@style/Widget.Material3.Button"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/lexend_medium"
+                            android:text="+500 kcal"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:backgroundTint="@color/calorie_orange"
+                            app:cornerRadius="14dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Logout Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_logout"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/lexend_medium"
+                android:text="@string/logout"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_logout"
+                app:iconGravity="textStart"
+                app:iconSize="20dp"
+                app:iconTint="@color/text_secondary"
+                app:strokeColor="@color/divider_color"
+                app:strokeWidth="1dp" />
 
             <!-- Bottom spacing -->
             <View

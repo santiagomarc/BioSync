@@ -3,8 +3,6 @@ package com.example.biosync
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -40,8 +38,18 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var textViewWaterProgress: TextView
     private lateinit var progressIndicatorWater: LinearProgressIndicator
     private lateinit var textViewWaterPercentage: TextView
+    private lateinit var buttonSubtractWater: MaterialButton
     private lateinit var buttonAddWaterSmall: MaterialButton
     private lateinit var buttonAddWaterLarge: MaterialButton
+    
+    // Calorie tracking views
+    private lateinit var textViewCalorieProgressText: TextView
+    private lateinit var progressIndicatorCalories: LinearProgressIndicator
+    private lateinit var textViewCaloriePercentage: TextView
+    private lateinit var buttonSubtractCalories: MaterialButton
+    private lateinit var buttonAddCaloriesSmall: MaterialButton
+    private lateinit var buttonAddCaloriesLarge: MaterialButton
+    private lateinit var buttonLogout: MaterialButton
 
     private var currentUser: User? = null
 
@@ -79,8 +87,18 @@ class HomeActivity : AppCompatActivity() {
         textViewWaterProgress = findViewById(R.id.textView_water_progress_text)
         progressIndicatorWater = findViewById(R.id.progressIndicator_water)
         textViewWaterPercentage = findViewById(R.id.textView_water_percentage)
+        buttonSubtractWater = findViewById(R.id.button_subtract_water)
         buttonAddWaterSmall = findViewById(R.id.button_add_water_small)
         buttonAddWaterLarge = findViewById(R.id.button_add_water_large)
+        
+        // Calorie tracking views
+        textViewCalorieProgressText = findViewById(R.id.textView_calorie_progress_text)
+        progressIndicatorCalories = findViewById(R.id.progressIndicator_calories)
+        textViewCaloriePercentage = findViewById(R.id.textView_calorie_percentage)
+        buttonSubtractCalories = findViewById(R.id.button_subtract_calories)
+        buttonAddCaloriesSmall = findViewById(R.id.button_add_calories_small)
+        buttonAddCaloriesLarge = findViewById(R.id.button_add_calories_large)
+        buttonLogout = findViewById(R.id.button_logout)
 
         // Set current date
         val dateFormat = SimpleDateFormat("EEEE, MMMM d", Locale.getDefault())
@@ -92,32 +110,36 @@ class HomeActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_home, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_refresh -> {
-                loadUserData()
-                true
-            }
-            R.id.action_logout -> {
-                showLogoutConfirmation()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
     private fun setupClickListeners() {
+        // Water buttons
+        buttonSubtractWater.setOnClickListener {
+            subtractWater(250)
+        }
+
         buttonAddWaterSmall.setOnClickListener {
             addWater(250)
         }
 
         buttonAddWaterLarge.setOnClickListener {
             addWater(500)
+        }
+        
+        // Calorie buttons
+        buttonSubtractCalories.setOnClickListener {
+            subtractCalories(100)
+        }
+
+        buttonAddCaloriesSmall.setOnClickListener {
+            addCalories(100)
+        }
+
+        buttonAddCaloriesLarge.setOnClickListener {
+            addCalories(500)
+        }
+        
+        // Logout button
+        buttonLogout.setOnClickListener {
+            showLogoutConfirmation()
         }
     }
 
@@ -182,6 +204,12 @@ class HomeActivity : AppCompatActivity() {
         val waterProgress = user.getWaterProgress().toInt().coerceIn(0, 100)
         progressIndicatorWater.progress = waterProgress
         textViewWaterPercentage.text = "${waterProgress}%"
+        
+        // Update Calorie Intake
+        textViewCalorieProgressText.text = "${numberFormat.format(user.currentCalorieIntake)} / ${numberFormat.format(user.dailyCalorieGoal)} kcal"
+        val calorieProgress = user.getCalorieProgress().coerceIn(0, 100)
+        progressIndicatorCalories.progress = calorieProgress
+        textViewCaloriePercentage.text = "${calorieProgress}%"
     }
 
     private fun addWater(amount: Int) {
@@ -192,6 +220,50 @@ class HomeActivity : AppCompatActivity() {
             .update("currentWaterIntake", newIntake)
             .addOnSuccessListener {
                 Toast.makeText(this, "+${amount}ml added! 💧", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun subtractWater(amount: Int) {
+        val userId = auth.currentUser?.uid ?: return
+        val currentIntake = currentUser?.currentWaterIntake ?: 0
+        val newIntake = (currentIntake - amount).coerceAtLeast(0)
+
+        db.collection("users").document(userId)
+            .update("currentWaterIntake", newIntake)
+            .addOnSuccessListener {
+                Toast.makeText(this, "-${amount}ml removed 💧", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun addCalories(amount: Int) {
+        val userId = auth.currentUser?.uid ?: return
+        val newIntake = (currentUser?.currentCalorieIntake ?: 0) + amount
+
+        db.collection("users").document(userId)
+            .update("currentCalorieIntake", newIntake)
+            .addOnSuccessListener {
+                Toast.makeText(this, "+${amount} kcal added! 🔥", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun subtractCalories(amount: Int) {
+        val userId = auth.currentUser?.uid ?: return
+        val currentIntake = currentUser?.currentCalorieIntake ?: 0
+        val newIntake = (currentIntake - amount).coerceAtLeast(0)
+
+        db.collection("users").document(userId)
+            .update("currentCalorieIntake", newIntake)
+            .addOnSuccessListener {
+                Toast.makeText(this, "-${amount} kcal removed 🔥", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
