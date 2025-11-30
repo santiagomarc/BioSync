@@ -1,0 +1,146 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BioSync" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/text_on_primary</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/text_on_primary</item>
+
+        <!-- Accent color -->
+        <item name="colorAccent">@color/accent</item>
+
+        <!-- Background and surface -->
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <!-- Error color -->
+        <item name="colorError">@color/error</item>
+
+        <!-- Custom Font Family -->
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="fontFamily">@font/lexend</item>
+
+        <!-- Text Input styling -->
+        <item name="textInputStyle">@style/BioSync.TextInputLayout</item>
+
+        <!-- Button styling -->
+        <item name="materialButtonStyle">@style/BioSync.Button</item>
+
+        <!-- Chip styling -->
+        <item name="chipStyle">@style/BioSync.Chip</item>
+
+        <!-- Card styling -->
+        <item name="materialCardViewStyle">@style/Widget.BioSync.CardView</item>
+    </style>
+
+    <style name="Theme.BioSync" parent="Base.Theme.BioSync" />
+
+    <!-- Custom TextInputLayout Style -->
+    <style name="BioSync.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxStrokeColor">@color/text_input_box_stroke</item>
+        <item name="boxBackgroundColor">@color/input_background</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="android:fontFamily">@font/lexend</item>
+    </style>
+
+    <!-- Custom Button Style -->
+    <style name="BioSync.Button" parent="Widget.Material3.Button">
+        <item name="cornerRadius">16dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/lexend_medium</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Custom Outlined Button Style -->
+    <style name="BioSync.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">16dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="strokeColor">@color/primary</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="android:fontFamily">@font/lexend_medium</item>
+    </style>
+
+    <!-- Custom Chip Style -->
+    <style name="BioSync.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipCornerRadius">24dp</item>
+        <item name="chipBackgroundColor">@color/chip_background_color</item>
+        <item name="android:textColor">@color/chip_text_color</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipStrokeColor">@color/chip_stroke_color</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:fontFamily">@font/lexend_medium</item>
+    </style>
+
+    <!-- Social Button Style -->
+    <style name="BioSync.Button.Social" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeColor">@color/input_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <!-- Modern Card Style -->
+    <style name="Widget.BioSync.CardView" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+    </style>
+
+    <!-- Gradient Card Style -->
+    <style name="Widget.BioSync.CardView.Gradient" parent="Widget.BioSync.CardView">
+        <item name="cardBackgroundColor">@color/primary</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="BioSync.Text.Heading" parent="">
+        <item name="android:fontFamily">@font/lexend_bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="BioSync.Text.Title" parent="">
+        <item name="android:fontFamily">@font/lexend_semibold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="BioSync.Text.Subtitle" parent="">
+        <item name="android:fontFamily">@font/lexend_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="BioSync.Text.Body" parent="">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="BioSync.Text.Caption" parent="">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="BioSync.Text.BigNumber" parent="">
+        <item name="android:fontFamily">@font/lexend_bold</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+</resources>

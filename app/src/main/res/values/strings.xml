@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">BioSync</string>
+
+    <!-- Login Screen -->
+    <string name="login_title">Welcome Back</string>
+    <string name="login_subtitle">Sign in to your health journey</string>
+    <string name="email_label">Email</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="password_label">Password</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="login_button_text">Sign In</string>
+    <string name="no_account_text">Don\'t have an account?</string>
+    <string name="create_account_text">Sign Up</string>
+
+    <!-- Register Screen -->
+    <string name="register_title">Create Account</string>
+    <string name="register_subtitle">Start your wellness journey with BioSync</string>
+    <string name="fullname_label">Full Name</string>
+    <string name="fullname_hint">Enter your full name</string>
+    <string name="confirm_password_label">Confirm Password</string>
+    <string name="confirm_password_hint">Re-enter your password</string>
+    <string name="register_button_text">Create Account</string>
+    <string name="already_have_account_text">Already have an account?</string>
+    <string name="login_link_text">Sign In</string>
+
+    <!-- Health Profile Section -->
+    <string name="health_profile_title">Your Health Profile</string>
+    <string name="health_profile_subtitle">Help us personalize your experience</string>
+    <string name="age_label">Age</string>
+    <string name="age_hint">Years</string>
+    <string name="weight_label">Weight</string>
+    <string name="weight_hint">kg</string>
+    <string name="height_label">Height</string>
+    <string name="height_hint">cm</string>
+    <string name="gender_label">Gender</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="activity_level_label">Activity Level</string>
+    <string name="activity_sedentary">Sedentary</string>
+    <string name="activity_light">Light</string>
+    <string name="activity_moderate">Moderate</string>
+    <string name="activity_active">Active</string>
+
+    <!-- Social Login -->
+    <string name="or_continue_with">or continue with</string>
+    <string name="facebook_login">Login with Facebook</string>
+    <string name="google_login">Login with Google</string>
+    <string name="github_login">Login with GitHub</string>
+
+    <!-- Validation Messages -->
+    <string name="error_empty_email">Email is required</string>
+    <string name="error_invalid_email">Please enter a valid email address</string>
+    <string name="error_empty_password">Password is required</string>
+    <string name="error_empty_fullname">Full name is required</string>
+    <string name="error_empty_confirm_password">Please confirm your password</string>
+    <string name="error_password_mismatch">Passwords do not match</string>
+    <string name="error_password_too_short">Password must be at least 6 characters</string>
+    <string name="error_empty_age">Age is required</string>
+    <string name="error_invalid_age">Please enter a valid age (1-120)</string>
+    <string name="error_empty_weight">Weight is required</string>
+    <string name="error_invalid_weight">Please enter a valid weight</string>
+    <string name="error_empty_height">Height is required</string>
+    <string name="error_invalid_height">Please enter a valid height</string>
+    <string name="error_select_gender">Please select your gender</string>
+    <string name="error_select_activity">Please select your activity level</string>
+
+    <!-- Dialog Messages -->
+    <string name="login_success_title">Welcome Back!</string>
+    <string name="login_success_message">Let\'s check on your health goals.</string>
+    <string name="register_success_title">Account Created!</string>
+    <string name="register_success_message">Your personalized health dashboard is ready.</string>
+    <string name="social_login_title">Coming Soon!</string>
+    <string name="social_login_message">Social login feature will be available soon.</string>
+    <string name="dialog_ok">OK</string>
+
+    <!-- Welcome Screen -->
+    <string name="welcome_tagline">Your Body Passport to Better Health</string>
+    <string name="sdg_badge">🌍 SDG 3: Good Health</string>
+
+    <!-- Home Dashboard -->
+    <string name="home_greeting">Welcome back</string>
+    <string name="hello_user">Hello, %1$s</string>
+    <string name="today_progress">Today\'s Progress</string>
+    <string name="daily_calorie_goal">Daily Calorie Goal</string>
+    <string name="kcal_per_day">kcal/day</string>
+    <string name="water_title">Water Intake</string>
+    <string name="water_goal">%1$d / %2$d ml</string>
+    <string name="water_add_small">+250ml</string>
+    <string name="water_add_large">+500ml</string>
+    <string name="calories_title">Daily Calories</string>
+    <string name="calories_goal">%1$d kcal</string>
+    <string name="calories_add">Add Meal</string>
+    <string name="bmi_title">Your BMI</string>
+    <string name="bmi_value">%.1f</string>
+    <string name="bmi_range">18.5 - 24.9 is healthy</string>
+    <string name="bmi_underweight">Underweight</string>
+    <string name="bmi_normal">Normal</string>
+    <string name="bmi_overweight">Overweight</string>
+    <string name="bmi_obese">Obese</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_logout">Logout</string>
+    <string name="logout">Logout</string>
+    <string name="progress_percent">%d%%</string>
+    <string name="activity_sedentary_emoji">🪑 Sedentary</string>
+    <string name="activity_light_emoji">🚶 Lightly Active</string>
+    <string name="activity_moderate_emoji">🔥 Moderately Active</string>
+    <string name="activity_active_emoji">💪 Very Active</string>
+
+    <!-- SDG Section -->
+    <string name="sdg_title">SDG 3: Good Health &amp; Well-being</string>
+    <string name="sdg_description">BioSync helps you track and improve your daily health metrics, contributing to sustainable health practices.</string>
+</resources>

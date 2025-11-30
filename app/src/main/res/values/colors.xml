@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- BioSync Brand Colors -->
+    <color name="primary">#1A1A2E</color>
+    <color name="primary_variant">#16213E</color>
+    <color name="secondary">#0F3460</color>
+    <color name="accent">#E94560</color>
+    <color name="accent_light">#FF6B6B</color>
+
+    <!-- Background Colors -->
+    <color name="background">#F8F9FE</color>
+    <color name="background_light">#FAFBFF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="card_background">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#1A1A2E</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_hint">#9CA3AF</color>
+    <color name="text_on_primary">#FFFFFF</color>
+
+    <!-- Input Field Colors -->
+    <color name="input_background">#F8F9FA</color>
+    <color name="input_stroke">#E0E0E0</color>
+    <color name="input_stroke_focused">#1A1A2E</color>
+
+    <!-- Status Colors -->
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FFC107</color>
+    <color name="error">#F44336</color>
+    <color name="info">#2196F3</color>
+
+    <!-- Health Dashboard Colors -->
+    <color name="water_blue">#4FC3F7</color>
+    <color name="water_blue_light">#E1F5FE</color>
+    <color name="water_cyan">#00BCD4</color>
+    <color name="calorie_orange">#FFB74D</color>
+    <color name="calorie_orange_light">#FFF3E0</color>
+    <color name="calorie_coral">#FF7043</color>
+    <color name="bmi_green">#81C784</color>
+    <color name="bmi_green_light">#E8F5E9</color>
+    <color name="bmi_teal">#26A69A</color>
+
+    <!-- Gradient Colors -->
+    <color name="gradient_start">#667eea</color>
+    <color name="gradient_end">#764ba2</color>
+    <color name="gradient_pink_start">#f093fb</color>
+    <color name="gradient_pink_end">#f5576c</color>
+    <color name="gradient_blue_start">#4facfe</color>
+    <color name="gradient_blue_end">#00f2fe</color>
+    <color name="gradient_green_start">#43e97b</color>
+    <color name="gradient_green_end">#38f9d7</color>
+
+    <!-- Progress Colors -->
+    <color name="progress_track">#E8E8E8</color>
+    <color name="progress_bmi">#667eea</color>
+    <color name="progress_water">#4FC3F7</color>
+    <color name="progress_calorie">#FF7043</color>
+
+    <!-- Stat Card Icon Backgrounds -->
+    <color name="stat_green_bg">#E8F5E9</color>
+    <color name="stat_pink_bg">#FCE4EC</color>
+    <color name="stat_blue_bg">#E3F2FD</color>
+    <color name="stat_water_bg">#E0F7FA</color>
+
+    <!-- Badge Colors -->
+    <color name="badge_underweight">#FFC107</color>
+    <color name="badge_normal">#4CAF50</color>
+    <color name="badge_overweight">#FF9800</color>
+    <color name="badge_obese">#F44336</color>
+
+    <!-- Chip Colors -->
+    <color name="chip_selected">#1A1A2E</color>
+    <color name="chip_unselected">#F5F5F5</color>
+    <color name="chip_text_selected">#FFFFFF</color>
+    <color name="chip_text_unselected">#666666</color>
+
+    <!-- Divider -->
+    <color name="divider_color">#E8E8E8</color>
+
+    <!-- Overlay -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_light">#40FFFFFF</color>
+</resources>
