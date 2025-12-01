@@ -8,12 +8,10 @@
     android:fillViewport="true"
     tools:context=".RegisterActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="32dp"
         android:paddingTop="72dp"
         android:paddingBottom="32dp">
 
@@ -22,33 +20,42 @@
             android:id="@+id/textView_register_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:fontFamily="@font/lexend_bold"
             android:letterSpacing="-0.02"
             android:text="@string/register_title"
             android:textColor="@color/text_primary"
-            android:textSize="32sp" />
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView_register_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/lexend"
             android:text="@string/register_subtitle"
             android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView_register_title" />
 
         <!-- Account Info Card -->
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
+            android:id="@+id/card_account_info"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             app:cardBackgroundColor="@color/surface"
             app:cardCornerRadius="16dp"
             app:cardElevation="2dp"
-            app:strokeWidth="0dp">
+            app:strokeWidth="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView_register_subtitle"
+            app:layout_constraintWidth_percent="0.9">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -148,13 +155,18 @@
 
         <!-- Health Profile Card -->
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
+            android:id="@+id/card_health_profile"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             app:cardBackgroundColor="@color/surface"
             app:cardCornerRadius="16dp"
             app:cardElevation="2dp"
-            app:strokeWidth="0dp">
+            app:strokeWidth="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_account_info"
+            app:layout_constraintWidth_percent="0.9">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -314,7 +326,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     app:selectionRequired="true"
-                    app:singleLine="false"
+                    app:singleLine="true"
                     app:singleSelection="true">
 
                     <com.google.android.material.chip.Chip
@@ -323,7 +335,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:text="@string/activity_sedentary"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip_light"
@@ -331,7 +343,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:text="@string/activity_light"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip_moderate"
@@ -339,7 +351,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:text="@string/activity_moderate"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip_active"
@@ -347,7 +359,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:text="@string/activity_active"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
                 </com.google.android.material.chip.ChipGroup>
 
             </LinearLayout>
@@ -357,112 +369,134 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_register"
             style="@style/BioSync.Button"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_marginTop="24dp"
             android:text="@string/register_button_text"
             android:textSize="16sp"
-            app:cornerRadius="12dp" />
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_health_profile"
+            app:layout_constraintWidth_percent="0.9" />
 
         <!-- Divider -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <View
+            android:id="@+id/divider_left"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/divider_color"
+            app:layout_constraintEnd_toStartOf="@id/text_divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_register"
+            app:layout_constraintBottom_toBottomOf="@id/text_divider" />
+
+        <TextView
+            android:id="@+id/text_divider"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:fontFamily="@font/lexend"
+            android:text="@string/or_continue_with"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_register" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="@color/divider_color" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:fontFamily="@font/lexend"
-                android:text="@string/or_continue_with"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="@color/divider_color" />
-        </LinearLayout>
+        <View
+            android:id="@+id/divider_right"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/divider_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_divider"
+            app:layout_constraintTop_toBottomOf="@id/button_register"
+            app:layout_constraintBottom_toBottomOf="@id/text_divider" />
 
         <!-- Social Login Buttons -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_google"
+            style="@style/BioSync.Button.Social"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_marginTop="16dp"
-            android:orientation="horizontal">
+            android:layout_marginEnd="12dp"
+            android:contentDescription="@string/google_login"
+            app:icon="@drawable/ic_google"
+            app:iconSize="24dp"
+            app:iconTint="@null"
+            app:layout_constraintEnd_toStartOf="@id/button_facebook"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_divider" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_google"
-                style="@style/BioSync.Button.Social"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_marginEnd="12dp"
-                android:contentDescription="@string/google_login"
-                app:icon="@drawable/ic_google"
-                app:iconSize="24dp"
-                app:iconTint="@null" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_facebook"
+            style="@style/BioSync.Button.Social"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="6dp"
+            android:contentDescription="@string/facebook_login"
+            app:icon="@drawable/ic_facebook"
+            app:iconSize="24dp"
+            app:iconTint="@null"
+            app:layout_constraintEnd_toStartOf="@id/button_github"
+            app:layout_constraintStart_toEndOf="@id/button_google"
+            app:layout_constraintTop_toBottomOf="@id/text_divider" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_facebook"
-                style="@style/BioSync.Button.Social"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_marginEnd="12dp"
-                android:contentDescription="@string/facebook_login"
-                app:icon="@drawable/ic_facebook"
-                app:iconSize="24dp"
-                app:iconTint="@null" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_github"
-                style="@style/BioSync.Button.Social"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:contentDescription="@string/github_login"
-                app:icon="@drawable/ic_github"
-                app:iconSize="24dp"
-                app:iconTint="@null" />
-        </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_github"
+            style="@style/BioSync.Button.Social"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="12dp"
+            android:contentDescription="@string/github_login"
+            app:icon="@drawable/ic_github"
+            app:iconSize="24dp"
+            app:iconTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button_facebook"
+            app:layout_constraintTop_toBottomOf="@id/text_divider" />
 
         <!-- Login Link -->
-        <LinearLayout
+        <TextView
+            android:id="@+id/text_already_have_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            android:orientation="horizontal">
+            android:fontFamily="@font/lexend"
+            android:text="@string/already_have_account_text"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/textView_login_link"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_facebook"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lexend"
-                android:text="@string/already_have_account_text"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
+        <TextView
+            android:id="@+id/textView_login_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/lexend_semibold"
+            android:text="@string/login_link_text"
+            android:textColor="@color/primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_already_have_account"
+            app:layout_constraintTop_toBottomOf="@id/button_facebook"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-            <TextView
-                android:id="@+id/textView_login_link"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:fontFamily="@font/lexend_semibold"
-                android:text="@string/login_link_text"
-                android:textColor="@color/primary"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
